@@ -1,8 +1,9 @@
 ---
 title: Please allow me to introduce myself.
 date: "2019-09-27T00:00:00.001Z"
+description: "I've been a software engineer for over 5 years now, it started out as a hobby and grew into something more
+than I could have ever dre..."
 ---
-
 I've been a software engineer for over 5 years now, it started out as a hobby and grew into something more
 than I could have ever dreamed.
 
