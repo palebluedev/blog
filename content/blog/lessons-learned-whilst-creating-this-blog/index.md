@@ -4,7 +4,7 @@ date: "2019-09-28T11:00:00.001Z"
 description: "A how to guide using SuperTest"
 ---
 
-I'm going to assume a little knowledge straight of the bat and thats you know what [Express](https://expressjs.com/) and [Jest](https://jestjs.io/) are.
+I'm going to assume a little knowledge straight of the bat and that is that you know what [Express](https://expressjs.com/) and [Jest](https://jestjs.io/) are.
 
 **Goal:** I want to write a test which will assert that when I call `/example` I get back a `200` status code with the payload of `{ok: true}`.
 
@@ -40,7 +40,7 @@ import { request } from 'supertest';
 import app from '../whereever/youveplaced/your/app';
 
 describe('/example', () => {
-    it('should successfully with ok true', () => {
+    it('should successfully return with ok true', () => {
         return request(app)
             .expect(200)
             .then(response => {
