@@ -1,5 +1,5 @@
 ---
-title: Whats the deal with DNS!
+title: [Draft] Whats the deal with DNS!
 date: "2019-09-28T14:00:00.001Z"
 description: "Understanding DNS if you've been to affraid to ask..."
 ---
