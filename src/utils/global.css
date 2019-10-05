@@ -18,6 +18,10 @@ strong {
     color: #54b2fa;
 }
 
+ul {
+  margin-left: 2em;
+}
+
 /**
  * Based on copypasta from Remy Bach and Sarah Drasner
  */
