@@ -1,4 +1,58 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[@palebluedev's blog]]></title><description><![CDATA[A technical blog about technical computer things]]></description><link>https://palebluedev.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 29 Sep 2019 11:50:20 GMT</lastBuildDate><item><title><![CDATA[Testing Express with Jest.]]></title><description><![CDATA[I’m going to assume a little knowledge straight of the bat and that is that you know what Express and Jest are. Goal: I want to write a test…]]></description><link>https://palebluedev.github.io/blog/testing-express-with-jest/</link><guid isPermaLink="false">https://palebluedev.github.io/blog/testing-express-with-jest/</guid><pubDate>Sat, 28 Sep 2019 11:00:00 GMT</pubDate><content:encoded>&lt;p&gt;I’m going to assume a little knowledge straight of the bat and that is that you know what &lt;a href=&quot;https://expressjs.com/&quot;&gt;Express&lt;/a&gt; and &lt;a href=&quot;https://jestjs.io/&quot;&gt;Jest&lt;/a&gt; are.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[@palebluedev's blog]]></title><description><![CDATA[A technical blog about technical computer things]]></description><link>https://palebluedev.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 05 Oct 2019 21:37:45 GMT</lastBuildDate><item><title><![CDATA[Whats the deal with DNS!]]></title><description><![CDATA[In short,  is a system which connects logcal addresses such as  to physical 
+addresses such as an . To query  you can use a tool called dig…]]></description><link>https://palebluedev.github.io/blog/whats-the-deal-with-dns/</link><guid isPermaLink="false">https://palebluedev.github.io/blog/whats-the-deal-with-dns/</guid><pubDate>Sat, 28 Sep 2019 14:00:00 GMT</pubDate><content:encoded>&lt;p&gt;In short, &lt;code class=&quot;language-text&quot;&gt;DNS&lt;/code&gt; is a system which connects logcal addresses such as &lt;code class=&quot;language-text&quot;&gt;google.com&lt;/code&gt; to physical
+addresses such as an &lt;code class=&quot;language-text&quot;&gt;ip&lt;/code&gt;. To query &lt;code class=&quot;language-text&quot;&gt;DNS&lt;/code&gt; you can use a tool called &lt;a href=&quot;https://en.wikipedia.org/wiki/Dig_(command)&quot;&gt;dig&lt;/a&gt; luckly google also has web tool you can use if you don’t have dig installed locally &lt;a href=&quot;https://toolbox.googleapps.com/apps/dig&quot;&gt;https://toolbox.googleapps.com/apps/dig&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;Let’s query an A record&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;➜  blog git:&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;master&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; ✗ &lt;span class=&quot;token function&quot;&gt;dig&lt;/span&gt; google.com +noall +answer +short 
+&lt;span class=&quot;token number&quot;&gt;216.58&lt;/span&gt;.204.78&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Let’s query an MX record&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;➜  blog git:&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;master&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; ✗ &lt;span class=&quot;token function&quot;&gt;dig&lt;/span&gt; gmail.com any +multiline +noall +answer
+gmail.com.              &lt;span class=&quot;token number&quot;&gt;900&lt;/span&gt; IN MX &lt;span class=&quot;token number&quot;&gt;20&lt;/span&gt; alt2.gmail-smtp-in.l.google.com.
+gmail.com.              &lt;span class=&quot;token number&quot;&gt;900&lt;/span&gt; IN MX &lt;span class=&quot;token number&quot;&gt;5&lt;/span&gt; gmail-smtp-in.l.google.com.
+gmail.com.              &lt;span class=&quot;token number&quot;&gt;900&lt;/span&gt; IN MX &lt;span class=&quot;token number&quot;&gt;40&lt;/span&gt; alt4.gmail-smtp-in.l.google.com.
+gmail.com.              &lt;span class=&quot;token number&quot;&gt;900&lt;/span&gt; IN MX &lt;span class=&quot;token number&quot;&gt;10&lt;/span&gt; alt1.gmail-smtp-in.l.google.com.
+gmail.com.              &lt;span class=&quot;token number&quot;&gt;900&lt;/span&gt; IN MX &lt;span class=&quot;token number&quot;&gt;30&lt;/span&gt; alt3.gmail-smtp-in.l.google.com.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;we can go one level futher to get an A record&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;➜  blog git:&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;master&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; ✗ &lt;span class=&quot;token function&quot;&gt;dig&lt;/span&gt; alt2.gmail-smtp-in.l.google.com +noall +answer
+alt2.gmail-smtp-in.l.google.com. &lt;span class=&quot;token number&quot;&gt;275&lt;/span&gt; IN A       &lt;span class=&quot;token number&quot;&gt;172.217&lt;/span&gt;.194.27&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Record types
+
+- Address Mapping record (A Record)—
+    Also known as a DNS host record, stores a hostname and its corresponding IPv4 address.
+
+- IP Version 6 Address record (AAAA Record)—
+    Stores a hostname and its corresponding IPv6 address. 
+
+- Canonical Name record (CNAME Record)—
+    Can be used to alias a hostname to another hostname. When a DNS client requests a record
+    that contains a CNAME, which points to another hostname, the DNS resolution process is 
+    repeated with the new hostname.
+
+- Mail exchanger record (MX Record)—
+    Specifies an SMTP email server for the domain, used to route outgoing emails to an email 
+    server.
+
+- Name Server records (NS Record)—
+    Specifies that a DNS Zone, such as “example.com” is delegated to a specific Authoritative 
+    Name Server, and provides the address of the name server.
+
+- Reverse-lookup Pointer records (PTR Record)—
+    Allows a DNS resolver to provide an IP address and receive a hostname (reverse DNS lookup).
+
+- Certificate record (CERT Record)—
+    Stores encryption certificates—PKIX, SPKI, PGP, and so on.
+
+- Service Location (SRV Record)—
+    A service location record, like MX but for other communication protocols.
+
+- Text Record (TXT Record)—
+    Typically carries machine-readable data such as opportunistic encryption, sender policy 
+    framework, DKIM, DMARC, etc.
+
+- Start of Authority (SOA Record)—
+    This record appears at the beginning of a DNS zone file, and indicates the Authoritative 
+    Name Server for the current DNS zone, contact details for the domain administrator, domain 
+    serial number, and information on how frequently DNS information for this zone should be 
+    refreshed.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Testing Express with Jest.]]></title><description><![CDATA[I’m going to assume a little knowledge straight of the bat and that is that you know what Express and Jest are. Goal: I want to write a test…]]></description><link>https://palebluedev.github.io/blog/testing-express-with-jest/</link><guid isPermaLink="false">https://palebluedev.github.io/blog/testing-express-with-jest/</guid><pubDate>Sat, 28 Sep 2019 11:00:00 GMT</pubDate><content:encoded>&lt;p&gt;I’m going to assume a little knowledge straight of the bat and that is that you know what &lt;a href=&quot;https://expressjs.com/&quot;&gt;Express&lt;/a&gt; and &lt;a href=&quot;https://jestjs.io/&quot;&gt;Jest&lt;/a&gt; are.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Goal:&lt;/strong&gt; I want to write a test which will assert that when I call &lt;code class=&quot;language-text&quot;&gt;/example&lt;/code&gt; I get back a &lt;code class=&quot;language-text&quot;&gt;200&lt;/code&gt; status code with the payload of &lt;code class=&quot;language-text&quot;&gt;{ok: true}&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;To do this we can use a pacakge called &lt;a href=&quot;https://www.npmjs.com/package/supertest&quot;&gt;SuperTest&lt;/a&gt;, this package allows us to “glue” together the Express application
 and the Jest tests.&lt;/p&gt;
